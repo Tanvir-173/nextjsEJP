@@ -5,7 +5,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
       <section className="bg-blue-50 py-20 text-center">
-        <h1 className="text-5xl font-bold mb-4">Welcome to MyApp</h1>
+        <h1 className="text-5xl font-bold mb-4 text-black">Welcome to MyApp</h1>
         <p className="text-lg text-gray-700 mb-6">
           Discover and manage your products easily with our Next.js + Firebase + MongoDB app.
         </p>
@@ -38,19 +38,19 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section className="py-20 bg-gray-50">
-        <h2 className="text-3xl font-bold mb-8 text-center">What Users Say</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center text-black">What Users Say</h2>
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 px-4">
           <div className="p-6 border rounded shadow hover:shadow-lg transition">
             <p className="text-gray-700 mb-4">
               "This app made product management so easy. Highly recommend!"
             </p>
-            <p className="font-semibold">— Tanvir Islam</p>
+            <p className="font-semibold text-black">— Tanvir Islam</p>
           </div>
           <div className="p-6 border rounded shadow hover:shadow-lg transition">
             <p className="text-gray-700 mb-4">
               "Clean UI and smooth experience. Everything I needed in one place."
             </p>
-            <p className="font-semibold">— Jane Doe</p>
+            <p className="font-semibold text-black">— Jane Doe</p>
           </div>
         </div>
       </section>

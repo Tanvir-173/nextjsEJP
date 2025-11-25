@@ -3,12 +3,12 @@
 import ProtectedRoute from "@/app/Components/ProtectedRoute";
 import { useState } from "react";
 
-
 export default function AddProductPage() {
   const [title, setTitle] = useState("");
   const [shortDesc, setShortDesc] = useState("");
   const [fullDesc, setFullDesc] = useState("");
   const [price, setPrice] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [success, setSuccess] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -16,7 +16,7 @@ export default function AddProductPage() {
     const res = await fetch("/api/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, shortDesc, fullDesc, price }),
+      body: JSON.stringify({ title, shortDesc, fullDesc, price, image: imageUrl }),
     });
 
     if (res.ok) {
@@ -25,6 +25,7 @@ export default function AddProductPage() {
       setShortDesc("");
       setFullDesc("");
       setPrice("");
+      setImageUrl("");
     } else {
       const data = await res.json();
       setSuccess(data.error || "Failed to add product");
@@ -33,8 +34,8 @@ export default function AddProductPage() {
 
   return (
     <ProtectedRoute>
-      <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow">
-        <h1 className="text-2xl font-bold mb-4">Add Product</h1>
+      <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow bg-white">
+        <h1 className="text-2xl font-bold mb-4 text-black">Add Product</h1>
         {success && <p className="text-green-500">{success}</p>}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
@@ -42,27 +43,34 @@ export default function AddProductPage() {
             placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border p-2 rounded"
+            className="border p-2 rounded bg-white text-black placeholder-gray-500"
           />
           <input
             type="text"
             placeholder="Short Description"
             value={shortDesc}
             onChange={(e) => setShortDesc(e.target.value)}
-            className="border p-2 rounded"
+            className="border p-2 rounded bg-white text-black placeholder-gray-500"
           />
           <textarea
             placeholder="Full Description"
             value={fullDesc}
             onChange={(e) => setFullDesc(e.target.value)}
-            className="border p-2 rounded"
+            className="border p-2 rounded bg-white text-black placeholder-gray-500"
           />
           <input
             type="text"
             placeholder="Price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            className="border p-2 rounded"
+            className="border p-2 rounded bg-white text-black placeholder-gray-500"
+          />
+          <input
+            type="text"
+            placeholder="Image URL (optional)"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            className="border p-2 rounded bg-white text-black placeholder-gray-500"
           />
           <button
             type="submit"

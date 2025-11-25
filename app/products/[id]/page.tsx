@@ -67,6 +67,7 @@ interface Product {
   price: string;
   createdAt?: string;
   priority?: string;
+  image?: string; // added image field
 }
 
 export default function ProductDetailsPage() {
@@ -105,7 +106,6 @@ export default function ProductDetailsPage() {
   return (
     <div className="bg-white min-h-screen text-black">
       <div className="max-w-4xl mx-auto mt-10 p-4">
-
         {/* Back Button */}
         <button
           onClick={() => router.back()}
@@ -114,10 +114,22 @@ export default function ProductDetailsPage() {
           ← Back
         </button>
 
-        {/* Banner */}
-        <div className="w-full h-64 bg-gray-300 rounded-xl mb-6 flex items-center justify-center">
-          <span className="text-black text-xl">Image / Banner Here</span>
+        {/* Product Image / Banner */}
+        {/* Product Image / Banner */}
+        <div className="w-full h-64 rounded-xl mb-6 overflow-hidden">
+          {product?.image ? (
+            <img
+              src={product.image}
+              alt={product.title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+              <span className="text-black text-xl">No Image Available</span>
+            </div>
+          )}
         </div>
+
 
         {/* Title */}
         <h1 className="text-4xl font-bold mb-3">{product?.title}</h1>
@@ -141,10 +153,7 @@ export default function ProductDetailsPage() {
         </div>
 
         {/* Full Description */}
-        <div className="leading-relaxed text-lg text-black">
-          {product?.fullDesc}
-        </div>
-
+        <div className="leading-relaxed text-lg text-black">{product?.fullDesc}</div>
       </div>
     </div>
   );
