@@ -93,7 +93,7 @@ export default function ProductsPage() {
                 <p className="text-gray-700 mt-1 line-clamp-2">{p.shortDesc}</p>
 
                 {/* Price / Meta */}
-                <p className="mt-2 font-bold text-gray-900">${p.price}</p>
+                <p className="mt-2 font-bold text-gray-900">Taka:{p.price}</p>
 
                 {/* Details Button */}
                 <Link

@@ -58,6 +58,10 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoneyBill1Wave } from '@fortawesome/free-solid-svg-icons'
+import { faAlarmClock } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 interface Product {
   _id: string;
@@ -137,10 +141,10 @@ export default function ProductDetailsPage() {
         {/* Meta Info */}
         <div className="flex gap-6 mb-6 text-black">
           <p className="font-semibold">
-            💰 Price: <span className="font-normal">${product?.price}</span>
+             <FontAwesomeIcon icon={faMoneyBill1Wave} /> <span className="font-normal">{product?.price} Taka</span>
           </p>
           <p className="font-semibold">
-            📅 Date:{" "}
+            <FontAwesomeIcon icon={faAlarmClock} />{" "}
             <span className="font-normal">
               {product?.createdAt
                 ? new Date(product.createdAt).toLocaleDateString()
@@ -148,7 +152,7 @@ export default function ProductDetailsPage() {
             </span>
           </p>
           <p className="font-semibold">
-            ⭐ Priority: <span className="font-normal">{product?.priority || "N/A"}</span>
+            <FontAwesomeIcon icon={faStar} /> <span className="font-normal">{product?.priority || "N/A"}</span>
           </p>
         </div>
 
