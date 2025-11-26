@@ -66,7 +66,7 @@ export default function ManageProductsPage() {
                   <tr key={p._id} className="border-b hover:bg-gray-50 text-black">
                     <td className="px-4 py-2">{p.title}</td>
                     <td className="px-4 py-2">{p.shortDesc}</td>
-                    <td className="px-4 py-2 font-bold">${p.price}</td>
+                    <td className="px-4 py-2 font-bold">Tk:{p.price}</td>
                     <td className="px-4 py-2 text-center flex justify-center gap-2">
                       <button
                         onClick={() => handleView(p._id)}
