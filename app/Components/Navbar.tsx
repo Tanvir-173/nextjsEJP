@@ -47,9 +47,8 @@ export default function Navbar() {
               >
                 {user.email}
                 <svg
-                  className={`w-4 h-4 transition-transform ${
-                    dropdownOpen ? "rotate-180" : ""
-                  }`}
+                  className={`w-4 h-4 transition-transform ${dropdownOpen ? "rotate-180" : ""
+                    }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -109,22 +108,23 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Menu */}
       {mobileMenu && (
         <div className="md:hidden mt-4 space-y-2 border-t pt-4">
-          <Link href="/" className="block" onClick={() => setMobileMenu(false)}>
-            Home
-          </Link>
-
-          <Link
-            href="/products"
-            className="block"
-            onClick={() => setMobileMenu(false)}
-          >
-            Products
-          </Link>
-
           {!user ? (
             <>
+              <Link href="/" className="block" onClick={() => setMobileMenu(false)}>
+                Home
+              </Link>
+
+              <Link
+                href="/products"
+                className="block"
+                onClick={() => setMobileMenu(false)}
+              >
+                Products
+              </Link>
+
               <Link
                 href="/auth/login"
                 className="block"
@@ -142,16 +142,21 @@ export default function Navbar() {
             </>
           ) : (
             <>
+              {/* Show user email at the top */}
+              <div className="px-4 py-2 font-semibold border-b text-gray-700">
+                {user.email}
+              </div>
+
               <Link
                 href="/products/add"
-                className="block"
+                className="block px-4 py-2 hover:bg-gray-100"
                 onClick={() => setMobileMenu(false)}
               >
                 Add Product
               </Link>
               <Link
                 href="/products/manage"
-                className="block"
+                className="block px-4 py-2 hover:bg-gray-100"
                 onClick={() => setMobileMenu(false)}
               >
                 Manage Products
@@ -159,7 +164,7 @@ export default function Navbar() {
 
               <button
                 onClick={handleLogout}
-                className="block w-full text-left text-red-500"
+                className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100"
               >
                 Logout
               </button>
@@ -167,6 +172,7 @@ export default function Navbar() {
           )}
         </div>
       )}
+
     </nav>
   );
 }
